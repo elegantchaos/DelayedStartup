@@ -1,10 +1,7 @@
-//
-//  ContentView.swift
-//  DelayedStartup
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  Created by Sam Deane on 05/06/2020.
-//  Copyright © 2020 Elegant Chaos. All rights reserved.
-//
+//  All code (c) 2020 - present day, Elegant Chaos Limited.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import SwiftUI
 
@@ -14,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ForEach(model.startupItems, id: \.url) { item in
-                Text(item.url.lastPathComponent)
+                Text(item.name)
             }
 
             HStack {
@@ -32,9 +29,7 @@ struct ContentView: View {
     }
     
     func add() {
-        AppDelegate.shared.selectFoldersToAdd() { folders in
-            print(folders)
-        }
+        AppDelegate.shared.selectItemsToAdd()
     }
     
     func test() {

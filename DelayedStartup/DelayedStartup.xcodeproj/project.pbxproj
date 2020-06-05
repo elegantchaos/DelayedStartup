@@ -15,6 +15,7 @@
 		22182672248A567600322631 /* DelayedStartupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22182671248A567600322631 /* DelayedStartupTests.swift */; };
 		2218267D248A567600322631 /* DelayedStartupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218267C248A567600322631 /* DelayedStartupUITests.swift */; };
 		22A393C1248A63C900BF96D7 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C0248A63C900BF96D7 /* Files */; };
+		22A393C3248A6F2F00BF96D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393C2248A6F2F00BF96D7 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		22182678248A567600322631 /* DelayedStartupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelayedStartupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2218267C248A567600322631 /* DelayedStartupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedStartupUITests.swift; sourceTree = "<group>"; };
 		2218267E248A567600322631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22A393C2248A6F2F00BF96D7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				2218265B248A567400322631 /* AppDelegate.swift */,
 				2218265D248A567400322631 /* ContentView.swift */,
+				22A393C2248A6F2F00BF96D7 /* Model.swift */,
 				2218265F248A567600322631 /* Assets.xcassets */,
 				22182664248A567600322631 /* Main.storyboard */,
 				22182667248A567600322631 /* Info.plist */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A393C3248A6F2F00BF96D7 /* Model.swift in Sources */,
 				2218265E248A567400322631 /* ContentView.swift in Sources */,
 				2218265C248A567400322631 /* AppDelegate.swift in Sources */,
 			);

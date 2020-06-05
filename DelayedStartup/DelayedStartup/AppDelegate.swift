@@ -1,61 +1,12 @@
-//
-//  AppDelegate.swift
-//  DelayedStartup
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  Created by Sam Deane on 05/06/2020.
-//  Copyright © 2020 Elegant Chaos. All rights reserved.
-//
+//  All code (c) 2020 - present day, Elegant Chaos Limited.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import Cocoa
 import Files
 import SwiftUI
 
-class Model: ObservableObject {
-    struct Item {
-        let url: URL
-        let bookmark: Data
-        
-        init?(url: URL) {
-            guard let data = url.secureBookmark(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess]) else { return nil }
-            self.url = url
-            self.bookmark = data
-        }
-        
-        init?(data: Data) {
-            guard let url = URL.resolveSecureBookmark(data) else { return nil }
-            self.url = url
-            self.bookmark = data
-        }
-    }
-    
-    @Published var startupItems: [Item] = []
-    
-    func load() {
-        if let array = UserDefaults.standard.array(forKey: "Items"), let items = array as? [Data] {
-            for data in items {
-                if let item = Item(data: data) {
-                    startupItems.append(item)
-                }
-            }
-        }
-    }
-    
-    func save() {
-        var array: [Data] = []
-        for item in startupItems {
-            array.append(item.bookmark)
-        }
-        UserDefaults.standard.set(array, forKey: "Items")
-    }
-    
-    func performStartup() {
-        for item in startupItems {
-            print("starting \(item)")
-        }
-    }
-    
-    
-}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -87,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
-    func selectFoldersToAdd(completion: @escaping ([URL]) -> Void) {
+    func selectItemsToAdd() {
         let panel = NSOpenPanel()
         panel.title = "Add Startup Items"
         panel.prompt = "Add"
