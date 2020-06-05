@@ -4,7 +4,13 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import Foundation
+import Files
+
+#if canImport(UIKit)
+import UIKit
+#else
 import AppKit
+#endif
 
 class Model: ObservableObject {
     enum ModelError: Error {
@@ -39,6 +45,9 @@ class Model: ObservableObject {
         }
         
         func open(using url: URL, completion: @escaping (Result<Bool, Error>) -> Void) {
+            #if canImport(UIKit)
+            UIApplication.shared.open(url)
+            #else
             NSWorkspace.shared.openApplication(at: url, configuration: NSWorkspace.OpenConfiguration()) { app, error in
                 if let error = error {
                     completion(.failure(error))
@@ -49,14 +58,20 @@ class Model: ObservableObject {
                     completion(.failure(ModelError.noErrorOrApplication))
                 }
             }
+            #endif
         }
         
         func open(using identifier: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+            #if canImport(UIKit)
+            #else
             NSWorkspace.shared.open([], withAppBundleIdentifier: identifier, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
             print("Started \(label).")
             completion(.success(false))
+            #endif
         }
         
+        #if canImport(UIKit)
+        #else
         func update(from app: NSRunningApplication) -> Bool {
             var updated = false
             if appID != app.bundleIdentifier {
@@ -71,6 +86,7 @@ class Model: ObservableObject {
             
             return updated
         }
+        #endif
     }
     
     @Published internal var items: [Item] = []

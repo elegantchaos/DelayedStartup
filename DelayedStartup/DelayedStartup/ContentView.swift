@@ -8,6 +8,7 @@ import SwiftUIExtensions
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
+    @EnvironmentObject var viewState: ViewState
     @State var editing: Bool = false
     
     var body: some View {
@@ -41,11 +42,11 @@ struct ContentView: View {
     }
     
     func add() {
-        AppDelegate.shared.selectItemsToAdd()
+        viewState.selectItemsToAdd()
     }
     
     func test() {
-        AppDelegate.shared.model.performStartup()
+        model.performStartup()
     }
     
     func delete(item: Model.Item) {
