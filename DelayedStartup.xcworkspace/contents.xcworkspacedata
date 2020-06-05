@@ -4,4 +4,7 @@
    <FileRef
       location = "group:DelayedStartup/DelayedStartup.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../Files">
+   </FileRef>
 </Workspace>

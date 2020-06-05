@@ -7,20 +7,34 @@
 //
 
 import Cocoa
+import Files
 import SwiftUI
 
 class Model: ObservableObject {
-    @Published var startupItems: [URL] = []
+    struct Item {
+        let url: URL
+        let bookmark: Data
+        
+        init?(url: URL) {
+            guard let data = url.secureBookmark(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess]) else { return nil }
+            self.url = url
+            self.bookmark = data
+        }
+        
+        init?(data: Data) {
+            guard let url = URL.resolveSecureBookmark(data) else { return nil }
+            self.url = url
+            self.bookmark = data
+        }
+    }
+    
+    @Published var startupItems: [Item] = []
     
     func load() {
         if let array = UserDefaults.standard.array(forKey: "Items"), let items = array as? [Data] {
             for data in items {
-                do {
-                    var wasStale = false
-                    let item = try URL(resolvingBookmarkData: data, bookmarkDataIsStale: &wasStale)
+                if let item = Item(data: data) {
                     startupItems.append(item)
-                } catch {
-                    
                 }
             }
         }
@@ -29,12 +43,7 @@ class Model: ObservableObject {
     func save() {
         var array: [Data] = []
         for item in startupItems {
-            do {
-                let data = try item.bookmarkData()
-                array.append(data)
-            } catch {
-                
-            }
+            array.append(item.bookmark)
         }
         UserDefaults.standard.set(array, forKey: "Items")
     }
@@ -100,7 +109,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func add(urls: [URL]) {
-        model.startupItems.append(contentsOf: urls)
+        let items = urls.compactMap({ Model.Item(url: $0) })
+        model.startupItems.append(contentsOf: items)
         model.save()
     }
     

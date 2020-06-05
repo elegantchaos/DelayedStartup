@@ -13,8 +13,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ForEach(model.startupItems, id: \.self) { item in
-                Text(item.lastPathComponent)
+            ForEach(model.startupItems, id: \.url) { item in
+                Text(item.url.lastPathComponent)
             }
 
             HStack {

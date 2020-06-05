@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		22182666248A567600322631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22182664248A567600322631 /* Main.storyboard */; };
 		22182672248A567600322631 /* DelayedStartupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22182671248A567600322631 /* DelayedStartupTests.swift */; };
 		2218267D248A567600322631 /* DelayedStartupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218267C248A567600322631 /* DelayedStartupUITests.swift */; };
+		22A393C1248A63C900BF96D7 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C0248A63C900BF96D7 /* Files */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A393C1248A63C900BF96D7 /* Files in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = DelayedStartup;
+			packageProductDependencies = (
+				22A393C0248A63C900BF96D7 /* Files */,
+			);
 			productName = DelayedStartup;
 			productReference = 22182658248A567400322631 /* DelayedStartup.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +228,9 @@
 				Base,
 			);
 			mainGroup = 2218264F248A567400322631;
+			packageReferences = (
+				22A393BF248A63C900BF96D7 /* XCRemoteSwiftPackageReference "Files" */,
+			);
 			productRefGroup = 22182659248A567400322631 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -597,6 +605,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22A393BF248A63C900BF96D7 /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/Files.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22A393C0248A63C900BF96D7 /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22A393BF248A63C900BF96D7 /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22182650248A567400322631 /* Project object */;
 }
