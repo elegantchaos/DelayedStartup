@@ -9,17 +9,58 @@
 import Cocoa
 import SwiftUI
 
+class Model: ObservableObject {
+    @Published var startupItems: [URL] = []
+    
+    func load() {
+        if let array = UserDefaults.standard.array(forKey: "Items"), let items = array as? [Data] {
+            for data in items {
+                do {
+                    var wasStale = false
+                    let item = try URL(resolvingBookmarkData: data, bookmarkDataIsStale: &wasStale)
+                    startupItems.append(item)
+                } catch {
+                    
+                }
+            }
+        }
+    }
+    
+    func save() {
+        var array: [Data] = []
+        for item in startupItems {
+            do {
+                let data = try item.bookmarkData()
+                array.append(data)
+            } catch {
+                
+            }
+        }
+        UserDefaults.standard.set(array, forKey: "Items")
+    }
+    
+    func performStartup() {
+        for item in startupItems {
+            print("starting \(item)")
+        }
+    }
+    
+    
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
+    static var shared: AppDelegate { NSApp.delegate as! AppDelegate }
+    
     var window: NSWindow!
-    var startupItems: [URL] = []
-
+    let model = Model()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
-
-        // Create the window and set the content view. 
+        let contentView = ContentView().environmentObject(model)
+        
+        // Create the window and set the content view.
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -29,37 +70,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
         
-        loadItems()
+        model.load()
         scheduleCheck()
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-    func loadItems() {
-        if let array = UserDefaults.standard.array(forKey: "Items"), let items = array as? [Data] {
-            for data in items {
-                if let item = URL(dataRepresentation: data, relativeTo: nil) {
-                    startupItems.append(item)
-                }
+    
+    func selectFoldersToAdd(completion: @escaping ([URL]) -> Void) {
+        let panel = NSOpenPanel()
+        panel.title = "Add Startup Items"
+        panel.prompt = "Add"
+        panel.message = "Select one or more items to launch at startup time."
+        
+        panel.allowedFileTypes = ["app"]
+        
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        panel.allowsMultipleSelection = true
+        panel.beginSheetModal(for: window) { response in
+            switch response {
+                case .OK:
+                    self.add(urls: panel.urls)
+                default:
+                    break
             }
         }
     }
     
-    func saveItems() {
-        var array: [Data] = []
-        for item in startupItems {
-            do {
-            let data = try item.bookmarkData()
-            array.append(data)
-            } catch {
-                
-            }
-        }
-        UserDefaults.standard.set(array, forKey: "Items")
+    func add(urls: [URL]) {
+        model.startupItems.append(contentsOf: urls)
+        model.save()
     }
-        
+    
     func scheduleCheck() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(1))) {
             self.performCheck()
@@ -68,21 +112,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func performCheck() {
         if FileManager.default.fileExists(atPath: "/Volumes/caconym") {
-            performStartup()
+            model.performStartup()
         } else {
             scheduleCheck()
         }
     }
     
-    func performStartup() {
-        for item in startupItems {
-            print("starting \(item)")
-        }
-        
+    func shutdown() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(1))) {
             NSApp.terminate(self)
         }
     }
-    
 }
 
