@@ -72,13 +72,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func scheduleCheck() {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(1))) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(30))) {
             self.performCheck()
         }
     }
     
     func performCheck() {
-        if FileManager.default.fileExists(atPath: "/Volumes/caconym") {
+        if FileManager.default.fileExists(atPath: "/Volumes/caconym/Users") {
             model.performStartup()
         } else {
             scheduleCheck()
