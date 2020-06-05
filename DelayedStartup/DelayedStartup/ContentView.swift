@@ -6,52 +6,50 @@
 import SwiftUI
 import SwiftUIExtensions
 
+extension Model: EditableModel {
+    typealias EditableItem = Item
+}
+
 struct ContentView: View {
     @EnvironmentObject var model: Model
     @EnvironmentObject var viewState: ViewState
-    @State var editing: Bool = false
     
     var body: some View {
-        VStack {
-            Text("Startup Items:")
-            List() {
-                ForEach(model.items) { item in
-                    HStack {
-                        if self.editing {
-                            SystemImage(.rowHandle)
-                            Button(action: { self.model.delete(item: item) })  {
-                                SystemImage(.rowDelete)
-                                    .foregroundColor(Color.red)
-                            }.buttonStyle(BorderlessButtonStyle())
+        EditingView() {
+            VStack {
+                Text("Startup Items:")
+                
+                List {
+                    WrappedForEach(model: self.model) { item in
+                        EditableRowView(item: item, model: self.model) {
+                            Text(item.name)
                         }
-                        
-                        Text(item.name)
                     }
                 }
-                .onDelete(perform: { at in self.model.delete(at: at) })
-                .onMove(perform: self.editing ? { from, to in self.model.move(from: from, to: to)} : nil)
-            }.bindEditing(to: $editing)
-
-
-            Spacer()
-            
-            HStack {
-                Button(action: add) {
-                    Text("Add")
+//                EditingForEach { (item: Model.Item) in
+//                    Text(item.name)
+//                }
+                
+                Spacer()
+                
+                HStack {
+                    Button(action: self.add) {
+                        Text("Add")
+                    }
+                    
+                    Button(action: self.test) {
+                        Text("Test")
+                    }
+                    //
+                    EditButton() {
+                        Text("Edit")
+                    }
                 }
                 
-                Button(action: test) {
-                    Text("Test")
-                }
-                
-                Button(action: { self.editing = !self.editing }) {
-                    Text("Edit")
-                }
             }
-
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
     }
     
     func add() {
@@ -60,33 +58,6 @@ struct ContentView: View {
     
     func test() {
         model.performStartup()
-    }
-}
-
-protocol EditableModel {
-    associatedtype Item
-    func delete(item: Item)
-    func delete(at offsets: IndexSet)
-}
-
-struct EditableRowView<ContentView, Model>: View where ContentView: View, Model: EditableModel {
-    let item: Model.Item
-    let model: Model
-    let content: () -> ContentView
-    @Environment(\.editModeShim) var editMode: EditModeShim
-    
-    var body: some View {
-        HStack {
-            if self.editMode.isEditing {
-                SystemImage(.rowHandle)
-                Button(action: { self.model.delete(item: self.item) })  {
-                    SystemImage(.rowDelete)
-                        .foregroundColor(Color.red)
-                }.buttonStyle(BorderlessButtonStyle())
-            }
-            
-            content()
-        }
     }
 }
 
