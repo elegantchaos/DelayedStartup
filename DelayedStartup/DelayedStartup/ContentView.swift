@@ -18,12 +18,13 @@ struct ContentView: View {
                 ForEach(model.items) { item in
                     HStack {
                         if self.editing {
+                            SystemImage(.rowHandle)
                             Button(action: { self.model.delete(item: item) })  {
-                                SystemImage("NSStopProgressFreestandingTemplate")
+                                SystemImage(.rowDelete)
                                     .foregroundColor(Color.red)
                             }.buttonStyle(BorderlessButtonStyle())
-
                         }
+                        
                         Text(item.name)
                     }
                 }
@@ -62,6 +63,32 @@ struct ContentView: View {
     }
 }
 
+protocol EditableModel {
+    associatedtype Item
+    func delete(item: Item)
+    func delete(at offsets: IndexSet)
+}
+
+struct EditableRowView<ContentView, Model>: View where ContentView: View, Model: EditableModel {
+    let item: Model.Item
+    let model: Model
+    let content: () -> ContentView
+    @Environment(\.editModeShim) var editMode: EditModeShim
+    
+    var body: some View {
+        HStack {
+            if self.editMode.isEditing {
+                SystemImage(.rowHandle)
+                Button(action: { self.model.delete(item: self.item) })  {
+                    SystemImage(.rowDelete)
+                        .foregroundColor(Color.red)
+                }.buttonStyle(BorderlessButtonStyle())
+            }
+            
+            content()
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
