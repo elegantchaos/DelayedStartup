@@ -52,17 +52,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         panel.beginSheetModal(for: window) { response in
             switch response {
                 case .OK:
-                    self.add(urls: panel.urls)
+                    self.model.add(urls: panel.urls)
                 default:
                     break
             }
         }
-    }
-    
-    func add(urls: [URL]) {
-        let items = urls.compactMap({ Model.Item(url: $0) })
-        model.startupItems.append(contentsOf: items)
-        model.save()
     }
     
     func scheduleCheck() {

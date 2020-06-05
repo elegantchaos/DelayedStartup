@@ -4,16 +4,28 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import SwiftUI
+import SwiftUIExtensions
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
+    @State var editing: Bool = false
     
     var body: some View {
         VStack {
-            ForEach(model.startupItems, id: \.url) { item in
-                Text(item.name)
+            Text("Startup Items:")
+            List {
+                ForEach(model.items) { item in
+                    HStack {
+                        Text(item.name)
+                        Button(action: { self.delete(item: item) })  {
+                            Text("Delete")
+                        }
+                    }
+                }
             }
 
+            Spacer()
+            
             HStack {
                 Button(action: add) {
                     Text("Add")
@@ -34,6 +46,10 @@ struct ContentView: View {
     
     func test() {
         AppDelegate.shared.model.performStartup()
+    }
+    
+    func delete(item: Model.Item) {
+        model.delete(item: item)
     }
 }
 

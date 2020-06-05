@@ -7,7 +7,12 @@ import Foundation
 import AppKit
 
 class Model: ObservableObject {
-    class Item: Codable {
+    enum ModelError: Error {
+        case noNameOrIdentifier
+        case noErrorOrApplication
+    }
+    
+    class Item: Codable, Identifiable {
         let identifier: UUID
         let bookmark: Data
         var appID: String?
@@ -23,35 +28,36 @@ class Model: ObservableObject {
             self.bookmark = data
         }
         
-        func open() {
+        func open(completion: @escaping (Result<Bool, Error>) -> Void) {
             if let identifier = appID {
-                open(using: identifier)
+                open(using: identifier, completion: completion)
             } else if let url = self.url {
-                open(using: url)
+                open(using: url, completion: completion)
             } else {
-                print("Couldn't resolve \(label).")
+                completion(.failure(ModelError.noNameOrIdentifier))
             }
         }
         
-        func open(using url: URL) {
+        func open(using url: URL, completion: @escaping (Result<Bool, Error>) -> Void) {
             NSWorkspace.shared.openApplication(at: url, configuration: NSWorkspace.OpenConfiguration()) { app, error in
                 if let error = error {
-                    print("Problem starting \(self.name): \(error)")
+                    completion(.failure(error))
                 } else if let app = app {
                     print("Started \(self.label) using \(url).")
-                    DispatchQueue.main.async {
-                        self.update(from: app)
-                    }
+                    completion(.success(self.update(from: app)))
+                } else {
+                    completion(.failure(ModelError.noErrorOrApplication))
                 }
             }
         }
         
-        func open(using identifier: String) {
+        func open(using identifier: String, completion: @escaping (Result<Bool, Error>) -> Void) {
             NSWorkspace.shared.open([], withAppBundleIdentifier: identifier, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
             print("Started \(label).")
+            completion(.success(false))
         }
         
-        func update(from app: NSRunningApplication) {
+        func update(from app: NSRunningApplication) -> Bool {
             var updated = false
             if appID != app.bundleIdentifier {
                 appID = app.bundleIdentifier
@@ -63,33 +69,68 @@ class Model: ObservableObject {
                 updated = true
             }
             
-            if updated {
-                AppDelegate.shared.model.save()
-            }
+            return updated
         }
     }
     
-    @Published var startupItems: [Item] = []
+    @Published internal var items: [Item] = []
+    let queue = DispatchQueue.main
     
     func load() {
-        let decoder = JSONDecoder()
-        if let json = UserDefaults.standard.string(forKey: "Items"), let data = json.data(using: .utf8) {
-            if let items = try? decoder.decode([Item].self, from: data) {
-                startupItems = items
+        queue.async {
+            let decoder = JSONDecoder()
+            if let json = UserDefaults.standard.string(forKey: "Items"), let data = json.data(using: .utf8) {
+                if let items = try? decoder.decode([Item].self, from: data) {
+                    self.items = items
+                }
             }
         }
     }
     
     func save() {
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(startupItems), let json = String(data: encoded, encoding: .utf8) {
-            UserDefaults.standard.set(json, forKey: "Items")
+        queue.async {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(self.items), let json = String(data: encoded, encoding: .utf8) {
+                UserDefaults.standard.set(json, forKey: "Items")
+            }
+        }
+    }
+    
+    func add(urls: [URL]) {
+        queue.async {
+            let items = urls.compactMap({ Model.Item(url: $0) })
+            self.items.append(contentsOf: items)
+            self.save()
+        }
+    }
+    
+    func delete(item: Item) {
+        queue.async {
+            self.items.removeAll(where: { $0.identifier == item.identifier })
+            self.save()
         }
     }
     
     func performStartup() {
-        for item in startupItems {
-            item.open()
+        let count = items.count
+        var done = 0
+        var updated = false
+        for item in items {
+            item.open() { result in
+                done += 1
+                switch result {
+                    case .success(let didUpdate):
+                        updated = updated || didUpdate
+                    case .failure(let error):
+                        print("Failed to open \(item.name): \(error).")
+                }
+                if done == count {
+                    if updated {
+                        print("Item(s) updated, so saving.")
+                        self.save()
+                    }
+                }
+            }
         }
     }
     

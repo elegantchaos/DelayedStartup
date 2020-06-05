@@ -16,6 +16,10 @@
 		2218267D248A567600322631 /* DelayedStartupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218267C248A567600322631 /* DelayedStartupUITests.swift */; };
 		22A393C1248A63C900BF96D7 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C0248A63C900BF96D7 /* Files */; };
 		22A393C3248A6F2F00BF96D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393C2248A6F2F00BF96D7 /* Model.swift */; };
+		22A393C6248A778400BF96D7 /* SwiftUIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C5248A778400BF96D7 /* SwiftUIExtensions */; };
+		22A393C9248A77CD00BF96D7 /* SwiftUIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C8248A77CD00BF96D7 /* SwiftUIExtensions */; };
+		22A393CC248A77E400BF96D7 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393CB248A77E400BF96D7 /* Logger */; };
+		22A393CE248A77E400BF96D7 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393CD248A77E400BF96D7 /* LoggerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A393C9248A77CD00BF96D7 /* SwiftUIExtensions in Frameworks */,
+				22A393C6248A778400BF96D7 /* SwiftUIExtensions in Frameworks */,
+				22A393CC248A77E400BF96D7 /* Logger in Frameworks */,
+				22A393CE248A77E400BF96D7 /* LoggerKit in Frameworks */,
 				22A393C1248A63C900BF96D7 /* Files in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +94,7 @@
 				22182670248A567600322631 /* DelayedStartupTests */,
 				2218267B248A567600322631 /* DelayedStartupUITests */,
 				22182659248A567400322631 /* Products */,
+				22A393C4248A778400BF96D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +149,13 @@
 			path = DelayedStartupUITests;
 			sourceTree = "<group>";
 		};
+		22A393C4248A778400BF96D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +174,10 @@
 			name = DelayedStartup;
 			packageProductDependencies = (
 				22A393C0248A63C900BF96D7 /* Files */,
+				22A393C5248A778400BF96D7 /* SwiftUIExtensions */,
+				22A393C8248A77CD00BF96D7 /* SwiftUIExtensions */,
+				22A393CB248A77E400BF96D7 /* Logger */,
+				22A393CD248A77E400BF96D7 /* LoggerKit */,
 			);
 			productName = DelayedStartup;
 			productReference = 22182658248A567400322631 /* DelayedStartup.app */;
@@ -233,6 +253,8 @@
 			mainGroup = 2218264F248A567400322631;
 			packageReferences = (
 				22A393BF248A63C900BF96D7 /* XCRemoteSwiftPackageReference "Files" */,
+				22A393C7248A77CD00BF96D7 /* XCRemoteSwiftPackageReference "SwiftUIExtensions" */,
+				22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */,
 			);
 			productRefGroup = 22182659248A567400322631 /* Products */;
 			projectDirPath = "";
@@ -619,6 +641,22 @@
 				minimumVersion = 1.0.5;
 			};
 		};
+		22A393C7248A77CD00BF96D7 /* XCRemoteSwiftPackageReference "SwiftUIExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/SwiftUIExtensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/Logger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -626,6 +664,25 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22A393BF248A63C900BF96D7 /* XCRemoteSwiftPackageReference "Files" */;
 			productName = Files;
+		};
+		22A393C5248A778400BF96D7 /* SwiftUIExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUIExtensions;
+		};
+		22A393C8248A77CD00BF96D7 /* SwiftUIExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22A393C7248A77CD00BF96D7 /* XCRemoteSwiftPackageReference "SwiftUIExtensions" */;
+			productName = SwiftUIExtensions;
+		};
+		22A393CB248A77E400BF96D7 /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = Logger;
+		};
+		22A393CD248A77E400BF96D7 /* LoggerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = LoggerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
