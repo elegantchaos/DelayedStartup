@@ -18,7 +18,7 @@ struct ContentView: View {
                 ForEach(model.items) { item in
                     HStack {
                         if self.editing {
-                            Button(action: { self.delete(item: item) })  {
+                            Button(action: { self.model.delete(item: item) })  {
                                 SystemImage("NSStopProgressFreestandingTemplate")
                                     .foregroundColor(Color.red)
                             }.buttonStyle(BorderlessButtonStyle())
@@ -26,7 +26,9 @@ struct ContentView: View {
                         }
                         Text(item.name)
                     }
-                }.onDelete(perform: delete)
+                }
+                .onDelete(perform: { at in self.model.delete(at: at) })
+                .onMove(perform: self.editing ? { from, to in self.model.move(from: from, to: to)} : nil)
             }.bindEditing(to: $editing)
 
 
@@ -57,14 +59,6 @@ struct ContentView: View {
     
     func test() {
         model.performStartup()
-    }
-
-    func delete(at offsets: IndexSet) {
-        model.delete(at: offsets)
-    }
-
-    func delete(item: Model.Item) {
-        model.delete(item: item)
     }
 }
 

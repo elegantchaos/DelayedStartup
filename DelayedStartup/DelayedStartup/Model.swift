@@ -138,6 +138,13 @@ class Model: ObservableObject {
         }
     }
     
+    func move(from: IndexSet, to: Int) {
+        queue.async {
+            self.items.move(fromOffsets: from, toOffset: to)
+            self.save()
+        }
+    }
+    
     func performStartup() {
         let count = items.count
         var done = 0
