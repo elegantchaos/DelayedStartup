@@ -31,7 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
         
         model.load()
-        scheduleCheck()
+        
+        if !UserDefaults.standard.bool(forKey: "DontCheckOnStartup") {
+            scheduleCheck()
+        }
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
