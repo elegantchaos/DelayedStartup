@@ -14,16 +14,21 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Startup Items:")
-            List {
+            List() {
                 ForEach(model.items) { item in
                     HStack {
-                        Text(item.name)
-                        Button(action: { self.delete(item: item) })  {
-                            Text("Delete")
+                        if self.editing {
+                            Button(action: { self.delete(item: item) })  {
+                                SystemImage("NSStopProgressFreestandingTemplate")
+                                    .foregroundColor(Color.red)
+                            }.buttonStyle(BorderlessButtonStyle())
+
                         }
+                        Text(item.name)
                     }
-                }
-            }
+                }.onDelete(perform: delete)
+            }.bindEditing(to: $editing)
+
 
             Spacer()
             
@@ -35,10 +40,15 @@ struct ContentView: View {
                 Button(action: test) {
                     Text("Test")
                 }
+                
+                Button(action: { self.editing = !self.editing }) {
+                    Text("Edit")
+                }
             }
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
     }
     
     func add() {
@@ -48,7 +58,11 @@ struct ContentView: View {
     func test() {
         model.performStartup()
     }
-    
+
+    func delete(at offsets: IndexSet) {
+        model.delete(at: offsets)
+    }
+
     func delete(item: Model.Item) {
         model.delete(item: item)
     }

@@ -127,6 +127,17 @@ class Model: ObservableObject {
         }
     }
     
+    func delete(at offsets: IndexSet) {
+        queue.async {
+            var identifiers: [UUID] = []
+            for index in offsets {
+                identifiers.append(self.items[index].identifier)
+            }
+            self.items.removeAll(where: { identifiers.contains($0.identifier) })
+            self.save()
+        }
+    }
+    
     func performStartup() {
         let count = items.count
         var done = 0
