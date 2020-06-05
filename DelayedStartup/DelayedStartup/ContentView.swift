@@ -7,7 +7,6 @@ import SwiftUI
 import SwiftUIExtensions
 
 extension Model: EditableModel {
-    typealias EditableItem = Item
 }
 
 struct ContentView: View {
@@ -17,18 +16,11 @@ struct ContentView: View {
     var body: some View {
         EditingView() {
             VStack {
-                Text("Startup Items:")
+                Text("Delayed Startup Items")
                 
-                List {
-                    WrappedForEach(model: self.model) { item in
-                        EditableRowView(item: item, model: self.model) {
-                            Text(item.name)
-                        }
-                    }
+                EditableList() { (item: Model.Item, model: Model) in
+                    Text(item.name)
                 }
-//                EditingForEach { (item: Model.Item) in
-//                    Text(item.name)
-//                }
                 
                 Spacer()
                 
