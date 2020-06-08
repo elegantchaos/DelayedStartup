@@ -157,12 +157,8 @@
 		2218264F248A567400322631 = {
 			isa = PBXGroup;
 			children = (
-				2218265A248A567400322631 /* DelayedStartup */,
-				22182670248A567600322631 /* DelayedStartupTests */,
-				2218267B248A567600322631 /* DelayedStartupUITests */,
-				22A393D4248A847900BF96D7 /* DelayedStartupCatalyst */,
-				22A393EB248A847A00BF96D7 /* DelayedStartupCatalystTests */,
-				22A393F6248A847A00BF96D7 /* DelayedStartupCatalystUITests */,
+				228556CD248BE13900F72CD3 /* Sources */,
+				228556CC248BE12200F72CD3 /* Tests */,
 				22182659248A567400322631 /* Products */,
 				22A393C4248A778400BF96D7 /* Frameworks */,
 			);
@@ -220,6 +216,26 @@
 				2218267E248A567600322631 /* Info.plist */,
 			);
 			path = DelayedStartupUITests;
+			sourceTree = "<group>";
+		};
+		228556CC248BE12200F72CD3 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				22A393EB248A847A00BF96D7 /* DelayedStartupCatalystTests */,
+				22A393F6248A847A00BF96D7 /* DelayedStartupCatalystUITests */,
+				22182670248A567600322631 /* DelayedStartupTests */,
+				2218267B248A567600322631 /* DelayedStartupUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		228556CD248BE13900F72CD3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2218265A248A567400322631 /* DelayedStartup */,
+				22A393D4248A847900BF96D7 /* DelayedStartupCatalyst */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		22A393C4248A778400BF96D7 /* Frameworks */ = {
@@ -721,14 +737,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DelayedStartup/DelayedStartup.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/DelayedStartup/DelayedStartup.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"DelayedStartup/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/DelayedStartup/Preview Content\"";
 				DEVELOPMENT_TEAM = 2H48644JM2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = DelayedStartup/Info.plist;
+				INFOPLIST_FILE = Sources/DelayedStartup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -744,14 +761,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DelayedStartup/DelayedStartup.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/DelayedStartup/DelayedStartup.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"DelayedStartup/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/DelayedStartup/Preview Content\"";
 				DEVELOPMENT_TEAM = 2H48644JM2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = DelayedStartup/Info.plist;
+				INFOPLIST_FILE = Sources/DelayedStartup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
