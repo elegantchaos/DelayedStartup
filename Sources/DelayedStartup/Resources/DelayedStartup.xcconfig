@@ -1,6 +1,6 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-//  Created by xXxuserxXx on xXxdatexXx.
-//  All code (c) xXxyearxXx - present day, xXxownerxXx.
+//  Created by Sam Deane on 13/06/2020.
+//  All code (c) 2020 - present day, Elegant Chaos.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 #include "Dependencies/ReleaseTools/Configs/RTMac.xcconfig"
@@ -8,21 +8,21 @@
 
 
 RT_VERSION = 1.0.0
-RT_PRODUCT_NAME = "Delayed Startup"
+RT_PRODUCT_NAME = Delayed Startup
 RT_SHORT_NAME = DelayedStartup
 RT_BUNDLE_IDENTIFIER = com.elegantchaos.delayedstartup
 RT_TEAM = 2H48644JM2
 
-xXxprojectUnderscorexXx_ADDITIONAL_FRAMEWORKS = 
+DELAYED_STARTUP_ADDITIONAL_FRAMEWORKS =
 
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon$(RT_TYPE)
 
 
-OTHER_LDFLAGS = $xXxprojectUnderscorexXx_ADDITIONAL_FRAMEWORKS
+OTHER_LDFLAGS = $DELAYED_STARTUP_ADDITIONAL_FRAMEWORKS
 
 // Uncomment the lines below to test Sparkle
 //RT_BUILD = 100
-//#include "Sources/xXxprojectCamelxXx/Resources/IncludeSparkle.xcconfig"
+//#include "Sources/DelayedStartup/Resources/IncludeSparkle.xcconfig"
 
 
 MACOSX_DEPLOYMENT_TARGET = 10.15

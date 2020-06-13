@@ -16,26 +16,14 @@
 		2218267D248A567600322631 /* DelayedStartupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218267C248A567600322631 /* DelayedStartupUITests.swift */; };
 		2276124E24950658007D8DB6 /* DelayedStartup.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2276124C24950658007D8DB6 /* DelayedStartup.xcconfig */; };
 		2276124F24950658007D8DB6 /* BuildNumber.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2276124D24950658007D8DB6 /* BuildNumber.xcconfig */; };
-		2276125124950776007D8DB6 /* Mobile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2276125024950776007D8DB6 /* Mobile.xcconfig */; };
+		2276125624951A31007D8DB6 /* Screenshots.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 2276125324951A31007D8DB6 /* Screenshots.xctestplan */; };
+		2276125824951A31007D8DB6 /* Screenshots-tvOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 2276125524951A31007D8DB6 /* Screenshots-tvOS.xctestplan */; };
 		22A393C1248A63C900BF96D7 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C0248A63C900BF96D7 /* Files */; };
 		22A393C3248A6F2F00BF96D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393C2248A6F2F00BF96D7 /* Model.swift */; };
 		22A393C6248A778400BF96D7 /* SwiftUIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C5248A778400BF96D7 /* SwiftUIExtensions */; };
 		22A393C9248A77CD00BF96D7 /* SwiftUIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C8248A77CD00BF96D7 /* SwiftUIExtensions */; };
 		22A393CC248A77E400BF96D7 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393CB248A77E400BF96D7 /* Logger */; };
 		22A393CE248A77E400BF96D7 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393CD248A77E400BF96D7 /* LoggerKit */; };
-		22A393D6248A847900BF96D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393D5248A847900BF96D7 /* AppDelegate.swift */; };
-		22A393D8248A847900BF96D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393D7248A847900BF96D7 /* SceneDelegate.swift */; };
-		22A393DC248A847A00BF96D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22A393DB248A847A00BF96D7 /* Assets.xcassets */; };
-		22A393DF248A847A00BF96D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22A393DE248A847A00BF96D7 /* Preview Assets.xcassets */; };
-		22A393E2248A847A00BF96D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A393E0248A847A00BF96D7 /* LaunchScreen.storyboard */; };
-		22A393ED248A847A00BF96D7 /* DelayedStartupCatalystTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393EC248A847A00BF96D7 /* DelayedStartupCatalystTests.swift */; };
-		22A393F8248A847A00BF96D7 /* DelayedStartupCatalystUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393F7248A847A00BF96D7 /* DelayedStartupCatalystUITests.swift */; };
-		22A39404248A851100BF96D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218265D248A567400322631 /* ContentView.swift */; };
-		22A39405248A852300BF96D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A393C2248A6F2F00BF96D7 /* Model.swift */; };
-		22A39407248A86EA00BF96D7 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 22A39406248A86EA00BF96D7 /* Files */; };
-		22A39409248A86EA00BF96D7 /* SwiftUIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22A39408248A86EA00BF96D7 /* SwiftUIExtensions */; };
-		22A3940B248A86EA00BF96D7 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 22A3940A248A86EA00BF96D7 /* Logger */; };
-		22A3940D248A86EA00BF96D7 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A3940C248A86EA00BF96D7 /* LoggerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,24 +41,10 @@
 			remoteGlobalIDString = 22182657248A567400322631;
 			remoteInfo = DelayedStartup;
 		};
-		22A393E9248A847A00BF96D7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22182650248A567400322631 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22A393D2248A847900BF96D7;
-			remoteInfo = DelayedStartupCatalyst;
-		};
-		22A393F4248A847A00BF96D7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22182650248A567400322631 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22A393D2248A847900BF96D7;
-			remoteInfo = DelayedStartupCatalyst;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22182658248A567400322631 /* "Delayed Startup".app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "\"Delayed Startup\".app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22182658248A567400322631 /* Delayed Startup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delayed Startup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2218265B248A567400322631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2218265D248A567400322631 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2218265F248A567600322631 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,23 +60,10 @@
 		2218267E248A567600322631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2276124C24950658007D8DB6 /* DelayedStartup.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DelayedStartup.xcconfig; path = Sources/DelayedStartup/Resources/DelayedStartup.xcconfig; sourceTree = SOURCE_ROOT; };
 		2276124D24950658007D8DB6 /* BuildNumber.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = BuildNumber.xcconfig; path = Sources/DelayedStartup/Resources/BuildNumber.xcconfig; sourceTree = SOURCE_ROOT; };
-		2276125024950776007D8DB6 /* Mobile.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Mobile.xcconfig; sourceTree = "<group>"; };
+		2276125324951A31007D8DB6 /* Screenshots.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Screenshots.xctestplan; sourceTree = "<group>"; };
+		2276125424951A31007D8DB6 /* Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		2276125524951A31007D8DB6 /* Screenshots-tvOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Screenshots-tvOS.xctestplan"; sourceTree = "<group>"; };
 		22A393C2248A6F2F00BF96D7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		22A393D3248A847900BF96D7 /* DelayedStartupCatalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DelayedStartupCatalyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		22A393D5248A847900BF96D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22A393D7248A847900BF96D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22A393D9248A847900BF96D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		22A393DB248A847A00BF96D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		22A393DE248A847A00BF96D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		22A393E1248A847A00BF96D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		22A393E3248A847A00BF96D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		22A393E8248A847A00BF96D7 /* DelayedStartupCatalystTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelayedStartupCatalystTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22A393EC248A847A00BF96D7 /* DelayedStartupCatalystTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedStartupCatalystTests.swift; sourceTree = "<group>"; };
-		22A393EE248A847A00BF96D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22A393F3248A847A00BF96D7 /* DelayedStartupCatalystUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelayedStartupCatalystUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22A393F7248A847A00BF96D7 /* DelayedStartupCatalystUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedStartupCatalystUITests.swift; sourceTree = "<group>"; };
-		22A393F9248A847A00BF96D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22A39403248A84D800BF96D7 /* DelayedStartupCatalyst.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DelayedStartupCatalyst.entitlements; path = ../DelayedStartupCatalyst.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,31 +93,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22A393D0248A847900BF96D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22A3940B248A86EA00BF96D7 /* Logger in Frameworks */,
-				22A3940D248A86EA00BF96D7 /* LoggerKit in Frameworks */,
-				22A39409248A86EA00BF96D7 /* SwiftUIExtensions in Frameworks */,
-				22A39407248A86EA00BF96D7 /* Files in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393E5248A847A00BF96D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393F0248A847A00BF96D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -173,12 +109,9 @@
 		22182659248A567400322631 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22182658248A567400322631 /* "Delayed Startup".app */,
+				22182658248A567400322631 /* Delayed Startup.app */,
 				2218266D248A567600322631 /* DelayedStartupTests.xctest */,
 				22182678248A567600322631 /* DelayedStartupUITests.xctest */,
-				22A393D3248A847900BF96D7 /* DelayedStartupCatalyst.app */,
-				22A393E8248A847A00BF96D7 /* DelayedStartupCatalystTests.xctest */,
-				22A393F3248A847A00BF96D7 /* DelayedStartupCatalystUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,7 +156,6 @@
 		2276124A2495041D007D8DB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2276125024950776007D8DB6 /* Mobile.xcconfig */,
 				2276124D24950658007D8DB6 /* BuildNumber.xcconfig */,
 				2276124C24950658007D8DB6 /* DelayedStartup.xcconfig */,
 				22182664248A567600322631 /* Main.storyboard */,
@@ -235,23 +167,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2276124B24950439007D8DB6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				22A39403248A84D800BF96D7 /* DelayedStartupCatalyst.entitlements */,
-				22A393DB248A847A00BF96D7 /* Assets.xcassets */,
-				22A393E0248A847A00BF96D7 /* LaunchScreen.storyboard */,
-				22A393E3248A847A00BF96D7 /* Info.plist */,
-				22A393DD248A847A00BF96D7 /* Preview Content */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		228556CC248BE12200F72CD3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				22A393EB248A847A00BF96D7 /* DelayedStartupCatalystTests */,
-				22A393F6248A847A00BF96D7 /* DelayedStartupCatalystUITests */,
+				2276125524951A31007D8DB6 /* Screenshots-tvOS.xctestplan */,
+				2276125324951A31007D8DB6 /* Screenshots.xctestplan */,
+				2276125424951A31007D8DB6 /* Tests.xcconfig */,
 				22182670248A567600322631 /* DelayedStartupTests */,
 				2218267B248A567600322631 /* DelayedStartupUITests */,
 			);
@@ -262,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				2218265A248A567400322631 /* DelayedStartup */,
-				22A393D4248A847900BF96D7 /* DelayedStartupCatalyst */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -272,43 +192,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		22A393D4248A847900BF96D7 /* DelayedStartupCatalyst */ = {
-			isa = PBXGroup;
-			children = (
-				2276124B24950439007D8DB6 /* Resources */,
-				22A393D5248A847900BF96D7 /* AppDelegate.swift */,
-				22A393D7248A847900BF96D7 /* SceneDelegate.swift */,
-				22A393D9248A847900BF96D7 /* ContentView.swift */,
-			);
-			path = DelayedStartupCatalyst;
-			sourceTree = "<group>";
-		};
-		22A393DD248A847A00BF96D7 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				22A393DE248A847A00BF96D7 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		22A393EB248A847A00BF96D7 /* DelayedStartupCatalystTests */ = {
-			isa = PBXGroup;
-			children = (
-				22A393EC248A847A00BF96D7 /* DelayedStartupCatalystTests.swift */,
-				22A393EE248A847A00BF96D7 /* Info.plist */,
-			);
-			path = DelayedStartupCatalystTests;
-			sourceTree = "<group>";
-		};
-		22A393F6248A847A00BF96D7 /* DelayedStartupCatalystUITests */ = {
-			isa = PBXGroup;
-			children = (
-				22A393F7248A847A00BF96D7 /* DelayedStartupCatalystUITests.swift */,
-				22A393F9248A847A00BF96D7 /* Info.plist */,
-			);
-			path = DelayedStartupCatalystUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,7 +218,7 @@
 				22A393CD248A77E400BF96D7 /* LoggerKit */,
 			);
 			productName = DelayedStartup;
-			productReference = 22182658248A567400322631 /* "Delayed Startup".app */;
+			productReference = 22182658248A567400322631 /* Delayed Startup.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2218266C248A567600322631 /* DelayedStartupTests */ = {
@@ -374,65 +257,6 @@
 			productReference = 22182678248A567600322631 /* DelayedStartupUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		22A393D2248A847900BF96D7 /* DelayedStartupCatalyst */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22A39400248A847A00BF96D7 /* Build configuration list for PBXNativeTarget "DelayedStartupCatalyst" */;
-			buildPhases = (
-				22A393CF248A847900BF96D7 /* Sources */,
-				22A393D0248A847900BF96D7 /* Frameworks */,
-				22A393D1248A847900BF96D7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DelayedStartupCatalyst;
-			packageProductDependencies = (
-				22A39406248A86EA00BF96D7 /* Files */,
-				22A39408248A86EA00BF96D7 /* SwiftUIExtensions */,
-				22A3940A248A86EA00BF96D7 /* Logger */,
-				22A3940C248A86EA00BF96D7 /* LoggerKit */,
-			);
-			productName = DelayedStartupCatalyst;
-			productReference = 22A393D3248A847900BF96D7 /* DelayedStartupCatalyst.app */;
-			productType = "com.apple.product-type.application";
-		};
-		22A393E7248A847A00BF96D7 /* DelayedStartupCatalystTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22A39401248A847A00BF96D7 /* Build configuration list for PBXNativeTarget "DelayedStartupCatalystTests" */;
-			buildPhases = (
-				22A393E4248A847A00BF96D7 /* Sources */,
-				22A393E5248A847A00BF96D7 /* Frameworks */,
-				22A393E6248A847A00BF96D7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				22A393EA248A847A00BF96D7 /* PBXTargetDependency */,
-			);
-			name = DelayedStartupCatalystTests;
-			productName = DelayedStartupCatalystTests;
-			productReference = 22A393E8248A847A00BF96D7 /* DelayedStartupCatalystTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		22A393F2248A847A00BF96D7 /* DelayedStartupCatalystUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22A39402248A847A00BF96D7 /* Build configuration list for PBXNativeTarget "DelayedStartupCatalystUITests" */;
-			buildPhases = (
-				22A393EF248A847A00BF96D7 /* Sources */,
-				22A393F0248A847A00BF96D7 /* Frameworks */,
-				22A393F1248A847A00BF96D7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				22A393F5248A847A00BF96D7 /* PBXTargetDependency */,
-			);
-			name = DelayedStartupCatalystUITests;
-			productName = DelayedStartupCatalystUITests;
-			productReference = 22A393F3248A847A00BF96D7 /* DelayedStartupCatalystUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -453,17 +277,6 @@
 					22182677248A567600322631 = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 22182657248A567400322631;
-					};
-					22A393D2248A847900BF96D7 = {
-						CreatedOnToolsVersion = 11.5;
-					};
-					22A393E7248A847A00BF96D7 = {
-						CreatedOnToolsVersion = 11.5;
-						TestTargetID = 22A393D2248A847900BF96D7;
-					};
-					22A393F2248A847A00BF96D7 = {
-						CreatedOnToolsVersion = 11.5;
-						TestTargetID = 22A393D2248A847900BF96D7;
 					};
 				};
 			};
@@ -488,9 +301,6 @@
 				22182657248A567400322631 /* DelayedStartup */,
 				2218266C248A567600322631 /* DelayedStartupTests */,
 				22182677248A567600322631 /* DelayedStartupUITests */,
-				22A393D2248A847900BF96D7 /* DelayedStartupCatalyst */,
-				22A393E7248A847A00BF96D7 /* DelayedStartupCatalystTests */,
-				22A393F2248A847A00BF96D7 /* DelayedStartupCatalystUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -501,8 +311,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				22182666248A567600322631 /* Main.storyboard in Resources */,
+				2276125624951A31007D8DB6 /* Screenshots.xctestplan in Resources */,
 				2276124E24950658007D8DB6 /* DelayedStartup.xcconfig in Resources */,
-				2276125124950776007D8DB6 /* Mobile.xcconfig in Resources */,
+				2276125824951A31007D8DB6 /* Screenshots-tvOS.xctestplan in Resources */,
 				22182663248A567600322631 /* Preview Assets.xcassets in Resources */,
 				22182660248A567600322631 /* Assets.xcassets in Resources */,
 				2276124F24950658007D8DB6 /* BuildNumber.xcconfig in Resources */,
@@ -517,30 +328,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		22182676248A567600322631 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393D1248A847900BF96D7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22A393E2248A847A00BF96D7 /* LaunchScreen.storyboard in Resources */,
-				22A393DF248A847A00BF96D7 /* Preview Assets.xcassets in Resources */,
-				22A393DC248A847A00BF96D7 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393E6248A847A00BF96D7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393F1248A847A00BF96D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -576,33 +363,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22A393CF248A847900BF96D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22A393D6248A847900BF96D7 /* AppDelegate.swift in Sources */,
-				22A393D8248A847900BF96D7 /* SceneDelegate.swift in Sources */,
-				22A39404248A851100BF96D7 /* ContentView.swift in Sources */,
-				22A39405248A852300BF96D7 /* Model.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393E4248A847A00BF96D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22A393ED248A847A00BF96D7 /* DelayedStartupCatalystTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22A393EF248A847A00BF96D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22A393F8248A847A00BF96D7 /* DelayedStartupCatalystUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -616,16 +376,6 @@
 			target = 22182657248A567400322631 /* DelayedStartup */;
 			targetProxy = 22182679248A567600322631 /* PBXContainerItemProxy */;
 		};
-		22A393EA248A847A00BF96D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22A393D2248A847900BF96D7 /* DelayedStartupCatalyst */;
-			targetProxy = 22A393E9248A847A00BF96D7 /* PBXContainerItemProxy */;
-		};
-		22A393F5248A847A00BF96D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22A393D2248A847900BF96D7 /* DelayedStartupCatalyst */;
-			targetProxy = 22A393F4248A847A00BF96D7 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -635,14 +385,6 @@
 				22182665248A567600322631 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		22A393E0248A847A00BF96D7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				22A393E1248A847A00BF96D7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -777,6 +519,7 @@
 		};
 		22182685248A567600322631 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2276125424951A31007D8DB6 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -799,6 +542,7 @@
 		};
 		22182686248A567600322631 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2276125424951A31007D8DB6 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -821,6 +565,7 @@
 		};
 		22182688248A567600322631 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2276125424951A31007D8DB6 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -841,6 +586,7 @@
 		};
 		22182689248A567600322631 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2276125424951A31007D8DB6 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -856,147 +602,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = DelayedStartup;
-			};
-			name = Release;
-		};
-		22A393FA248A847A00BF96D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Sources/DelayedStartupCatalyst/DelayedStartupCatalyst.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Sources/DelayedStartupCatalyst/Preview Content\"";
-				DEVELOPMENT_TEAM = 2H48644JM2;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Sources/DelayedStartupCatalyst/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DelayedStartupCatalyst;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = Debug;
-		};
-		22A393FB248A847A00BF96D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Sources/DelayedStartupCatalyst/DelayedStartupCatalyst.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Sources/DelayedStartupCatalyst/Preview Content\"";
-				DEVELOPMENT_TEAM = 2H48644JM2;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Sources/DelayedStartupCatalyst/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DelayedStartupCatalyst;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		22A393FC248A847A00BF96D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2H48644JM2;
-				INFOPLIST_FILE = DelayedStartupCatalystTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DelayedStartupCatalystTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DelayedStartupCatalyst.app/DelayedStartupCatalyst";
-			};
-			name = Debug;
-		};
-		22A393FD248A847A00BF96D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2H48644JM2;
-				INFOPLIST_FILE = DelayedStartupCatalystTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DelayedStartupCatalystTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DelayedStartupCatalyst.app/DelayedStartupCatalyst";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		22A393FE248A847A00BF96D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2H48644JM2;
-				INFOPLIST_FILE = DelayedStartupCatalystUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DelayedStartupCatalystUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DelayedStartupCatalyst;
-			};
-			name = Debug;
-		};
-		22A393FF248A847A00BF96D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2H48644JM2;
-				INFOPLIST_FILE = DelayedStartupCatalystUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DelayedStartupCatalystUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DelayedStartupCatalyst;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1035,33 +640,6 @@
 			buildConfigurations = (
 				22182688248A567600322631 /* Debug */,
 				22182689248A567600322631 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22A39400248A847A00BF96D7 /* Build configuration list for PBXNativeTarget "DelayedStartupCatalyst" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22A393FA248A847A00BF96D7 /* Debug */,
-				22A393FB248A847A00BF96D7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22A39401248A847A00BF96D7 /* Build configuration list for PBXNativeTarget "DelayedStartupCatalystTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22A393FC248A847A00BF96D7 /* Debug */,
-				22A393FD248A847A00BF96D7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22A39402248A847A00BF96D7 /* Build configuration list for PBXNativeTarget "DelayedStartupCatalystUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22A393FE248A847A00BF96D7 /* Debug */,
-				22A393FF248A847A00BF96D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1116,24 +694,6 @@
 			productName = Logger;
 		};
 		22A393CD248A77E400BF96D7 /* LoggerKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */;
-			productName = LoggerKit;
-		};
-		22A39406248A86EA00BF96D7 /* Files */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Files;
-		};
-		22A39408248A86EA00BF96D7 /* SwiftUIExtensions */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftUIExtensions;
-		};
-		22A3940A248A86EA00BF96D7 /* Logger */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */;
-			productName = Logger;
-		};
-		22A3940C248A86EA00BF96D7 /* LoggerKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */;
 			productName = LoggerKit;

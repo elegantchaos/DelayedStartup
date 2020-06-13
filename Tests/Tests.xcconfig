@@ -1,0 +1,12 @@
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  Created by Sam Deane on 13/06/2020.
+//  All code (c) 2020 - present day, Elegant Chaos.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+#include "Dependencies/ReleaseTools/Configs/RTTests.xcconfig"
+#include "Sources/DelayedStartup/Resources/DelayedStartup.xcconfig"
+
+TEST_TARGET_NAME = DelayedStartupMobile
+PRODUCT_NAME = $(TARGET_NAME)
+INFOPLIST_FILE = Tests/DelayedStartupUITests/Info.plist
