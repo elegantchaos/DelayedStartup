@@ -17,7 +17,8 @@ class ViewState: ObservableObject {
     }
 
     func selectItemsToAdd() {
-        let picker = MobileFilePicker(forOpeningDocumentTypes: [kUTTypeApplication as String]) { urls in
+        let startURL = URL(fileURLWithPath: "/Applications")
+        let picker = MobileFilePicker(forOpeningDocumentTypes: [kUTTypeApplication as String], startingIn: startURL) { urls in
             AppDelegate.shared.model.add(urls: urls)
         }
         if let viewController = scene.window?.rootViewController {

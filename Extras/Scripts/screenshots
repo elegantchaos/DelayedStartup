@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#  Created by Sam Deane on 20/05/2020.
+#  All code (c) 2020 - present day, Elegant Chaos Limited.
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+screenshots=Extras/Screenshots
+
+function make_screenshots {
+    local modifier=$1
+    local destination=$2
+
+    echo "Making screenshots for $destination."
+    rm -rf .build/tests/results.xcresult
+    xcodebuild test \
+        -workspace xXxprojectCamelxXx.xcworkspace \
+        -scheme "xXxprojectCamelxXx$modifier" \
+        -destination "$destination" \
+        -testPlan "Screenshots$modifier" \
+        -resultBundlePath .build/tests/results.xcresult \
+        -includeScreenshots | xcpretty
+
+    echo "Extracting Screenshots."
+    xcparse screenshots --model .build/tests/results.xcresult/ "$screenshots"
+}
+
+if [[ "$1" == "" ]]
+then
+    rm -rf "$screenshots"
+fi
+
+if [[ ("$1" == "") || ("$1" == "macOS") ]]
+then
+    make_screenshots '' 'platform=macOS'
+fi
+
+if [[ ("$1" == "") || ("$1" == "tvOS") ]]
+then
+    make_screenshots '-tvOS' 'platform=tvOS Simulator,name=Apple TV 4K (at 1080p)'
+fi
+
+if [[ ("$1" == "") || ("$1" == "iOS") ]]
+then
+    make_screenshots '' 'platform=iOS Simulator,name=iPhone 8 Plus'
+    make_screenshots '' 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+    make_screenshots '' 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (4th generation)'
+fi
+
+open "$screenshots"
+echo "Done."

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#  Created by Sam Deane on 27/02/2020.
+#  All code (c) 2020 - present day, Elegant Chaos Limited.
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+#export RT_REBUILD=true
+source Dependencies/ReleaseTools/Scripts/make-tools
+
+echo "***************"
+echo "Preparing macOS"
+echo "***************"
+
+rt set scheme xXxprojectCamelxXx-macOS --platform macOS
+rt archive --xcconfig Sources/xXxprojectCamelxXx/Resources/SkipSparkle.xcconfig  | xcpretty
+rm -rf ~/Desktop/xXxprojectCamelxXxNoSparkle.app
+ditto ".build/macOS/archive.xcarchive/Products/Applications/xXxprojectxXx.app" ~/Desktop/xXxprojectCamelxXxNoSparkle.app
+open ~/Desktop/xXxprojectCamelxXxNoSparkle.app

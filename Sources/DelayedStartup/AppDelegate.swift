@@ -57,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         panel.message = "Select one or more items to launch at startup time."
         
         panel.allowedFileTypes = ["app"]
-        
+        panel.directoryURL = URL(fileURLWithPath: "/Applications")
         panel.canChooseDirectories = false
         panel.canChooseFiles = true
         panel.allowsMultipleSelection = true

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DelayedStartup/DelayedStartup.xcodeproj">
+      location = "group:DelayedStartup.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../SwiftUIExtensions">
