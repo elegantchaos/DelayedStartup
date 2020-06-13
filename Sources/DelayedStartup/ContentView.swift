@@ -12,10 +12,11 @@ extension Model: EditableModel {
 struct ContentView: View {
     @EnvironmentObject var model: Model
     @EnvironmentObject var viewState: ViewState
-    
+
     var body: some View {
         EditingView() {
             VStack {
+                
                 Text("Delayed Startup Items")
                 
                 EditableList() { (item: Model.Item, model: Model) in
@@ -29,15 +30,34 @@ struct ContentView: View {
                         Text("Add")
                     }
                     
-                    Button(action: self.test) {
-                        Text("Test")
-                    }
-                    //
                     EditButton() {
                         Text("Edit")
                     }
+                    
+                    Spacer()
+                    
+                    Button(action: self.test) {
+                        Text("Test")
+                    }
                 }
+
+                Spacer()
                 
+                HStack {
+                    Toggle("Delay For", isOn: self.$model.delay)
+                    TextField("Delay", text: self.$model.delayTime)
+                    Text("seconds")
+                }
+
+                HStack {
+                    Toggle("Wait For Volume", isOn: self.$model.check)
+                    TextField("Volume", text: self.$model.checkVolume)
+                }
+
+                HStack {
+                    Toggle("Quit When Done", isOn: self.$model.quitWhenDone)
+                }
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()

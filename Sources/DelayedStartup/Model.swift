@@ -90,6 +90,12 @@ class Model: ObservableObject {
     }
     
     @Published internal var items: [Item] = []
+    @Published internal var delay: Bool = true
+    @Published internal var delayTime: String = "10"
+    @Published internal var check: Bool = true
+    @Published internal var checkVolume: String = "caconym"
+    @Published internal var quitWhenDone: Bool = true
+    
     let queue = DispatchQueue.main
     
     func load() {
