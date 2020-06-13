@@ -4,6 +4,17 @@
    <FileRef
       location = "group:DelayedStartup.xcodeproj">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "Dependencies">
+      <Group
+         location = "container:"
+         name = "ReleaseTools">
+         <FileRef
+            location = "group:Dependencies/ReleaseTools/Configs">
+         </FileRef>
+      </Group>
+   </Group>
    <FileRef
       location = "group:../SwiftUIExtensions">
    </FileRef>
