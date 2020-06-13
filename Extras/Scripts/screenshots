@@ -14,8 +14,8 @@ function make_screenshots {
     echo "Making screenshots for $destination."
     rm -rf .build/tests/results.xcresult
     xcodebuild test \
-        -workspace xXxprojectCamelxXx.xcworkspace \
-        -scheme "xXxprojectCamelxXx$modifier" \
+        -workspace DelayedStartup.xcworkspace \
+        -scheme "DelayedStartup$modifier" \
         -destination "$destination" \
         -testPlan "Screenshots$modifier" \
         -resultBundlePath .build/tests/results.xcresult \

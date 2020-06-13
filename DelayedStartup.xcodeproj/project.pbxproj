@@ -63,6 +63,7 @@
 		2276125324951A31007D8DB6 /* Screenshots.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Screenshots.xctestplan; sourceTree = "<group>"; };
 		2276125424951A31007D8DB6 /* Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		2276125524951A31007D8DB6 /* Screenshots-tvOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Screenshots-tvOS.xctestplan"; sourceTree = "<group>"; };
+		2276125924951FE5007D8DB6 /* Extras */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extras; sourceTree = "<group>"; };
 		22A393C2248A6F2F00BF96D7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +100,7 @@
 		2218264F248A567400322631 = {
 			isa = PBXGroup;
 			children = (
+				2276125924951FE5007D8DB6 /* Extras */,
 				228556CD248BE13900F72CD3 /* Sources */,
 				228556CC248BE12200F72CD3 /* Tests */,
 				22182659248A567400322631 /* Products */,

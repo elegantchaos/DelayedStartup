@@ -7,14 +7,16 @@
 
 source Dependencies/ReleaseTools/Scripts/make-tools
 
-echo " "
 echo "***************"
-echo "Uploading macOS"
+echo "Releasing macOS"
 echo "***************"
 
 set -o pipefail
 
-rt set scheme xXxprojectCamelxXx --platform macOS
-rt archive --show-output 2> /dev/null | xcpretty
-rt export --platform=macOS
-rt upload --platform=macOS
+rt set scheme DelayedStartup-Sparkle --platform macOS
+rt archive --xcconfig Sources/DelayedStartup/Resources/IncludeSparkle.xcconfig 2>/dev/null | xcpretty
+rt export --distribution true
+rt notarize
+rt wait
+rt compress
+rt publish

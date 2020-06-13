@@ -8,13 +8,13 @@
 source Dependencies/ReleaseTools/Scripts/make-tools
 
 echo " "
-echo "*************"
-echo "Uploading iOS  "
-echo "*************"
+echo "***************"
+echo "Uploading macOS"
+echo "***************"
 
 set -o pipefail
 
-rt set scheme xXxprojectCamelxXx --platform=iOS
-rt archive --platform=iOS --show-output 2> /dev/null | xcpretty
-rt export --platform=iOS
-rt upload --platform=iOS
+rt set scheme DelayedStartup --platform macOS
+rt archive --show-output 2> /dev/null | xcpretty
+rt export --platform=macOS
+rt upload --platform=macOS
