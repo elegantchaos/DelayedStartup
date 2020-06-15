@@ -90,23 +90,23 @@ class Model: ObservableObject {
     }
     
     @Published internal var items: [Item] = []
-    @Published internal var delay: Bool = true
-    @Published internal var delayTime: String = "10"
-    @Published internal var check: Bool = true
-    @Published internal var checkVolume: String = "caconym"
+    @Published internal var delayEnabled: Bool = true
+    @Published internal var delay: String = "10"
+    @Published internal var volumeEnabled: Bool = true
+    @Published internal var volume: String = "caconym"
     @Published internal var quitWhenDone: Bool = true
     
-    let queue = DispatchQueue.main
+    let queue = DispatchQueue(label: "com.elegantchaos.delayedstartup.model")
     
     typealias LoadCompletion = () -> Void
     func load(completion: LoadCompletion? = nil) {
         queue.async {
             let decoder = JSONDecoder()
             let defaults = UserDefaults.standard
-            self.delay = defaults.bool(forKey: .delayKey)
-            self.delayTime = defaults.string(forKey: .delayTimeKey) ?? ""
-            self.check = defaults.bool(forKey: .checkKey)
-            self.checkVolume = defaults.string(forKey: .checkVolumeKey) ?? ""
+            self.delayEnabled = defaults.bool(forKey: .delayKey)
+            self.delay = defaults.string(forKey: .delayTimeKey) ?? ""
+            self.volumeEnabled = defaults.bool(forKey: .checkKey)
+            self.volume = defaults.string(forKey: .checkVolumeKey) ?? ""
             self.quitWhenDone = defaults.bool(forKey: .quitWhenDoneKey)
             if let json = UserDefaults.standard.string(forKey: .itemsKey), let data = json.data(using: .utf8) {
                 if let items = try? decoder.decode([Item].self, from: data) {
@@ -125,10 +125,10 @@ class Model: ObservableObject {
             if let encoded = try? encoder.encode(self.items), let json = String(data: encoded, encoding: .utf8) {
                 defaults.set(json, forKey: .itemsKey)
             }
-            defaults.set(self.delay, forKey: .delayKey)
-            defaults.set(self.delayTime, forKey: .delayTimeKey)
-            defaults.set(self.check, forKey: .checkKey)
-            defaults.set(self.checkVolume, forKey: .checkVolumeKey)
+            defaults.set(self.delayEnabled, forKey: .delayKey)
+            defaults.set(self.delay, forKey: .delayTimeKey)
+            defaults.set(self.volumeEnabled, forKey: .checkKey)
+            defaults.set(self.volume, forKey: .checkVolumeKey)
             defaults.set(self.quitWhenDone, forKey: .quitWhenDoneKey)
             completion?()
         }
@@ -167,6 +167,33 @@ class Model: ObservableObject {
         }
     }
     
+    func firstCheck() {
+        checkingChannel.log("First check.")
+        if delayEnabled {
+            scheduleCheck()
+        } else {
+            performCheck()
+        }
+    }
+
+    func scheduleCheck() {
+        let seconds = (delayEnabled ? Int(delay) : nil) ?? 10
+        checkingChannel.log("Delaying \(seconds) seconds.")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(seconds))) {
+            self.performCheck()
+        }
+    }
+    
+    func performCheck() {
+        if !volumeEnabled || FileManager.default.fileExists(atPath: "/Volumes/\(volume)") {
+            checkingChannel.log("Starting applications.")
+            performStartup()
+        } else {
+            checkingChannel.log("Volume \(volume) missing.")
+            scheduleCheck()
+        }
+    }
+
     func performStartup() {
         let count = items.count
         var done = 0

@@ -44,14 +44,14 @@ struct ContentView: View {
                 Spacer()
                 
                 HStack {
-                    Toggle("Delay For", isOn: self.$model.delay)
-                    TextField("Delay", text: self.$model.delayTime).frame(width: 64)
+                    Toggle("Delay For", isOn: self.$model.delayEnabled)
+                    TextField("Delay", text: self.$model.delay).frame(width: 64)
                     Text("seconds")
                 }
 
                 HStack {
-                    Toggle("Wait For Volume", isOn: self.$model.check)
-                    TextField("Volume", text: self.$model.checkVolume)
+                    Toggle("Wait For Volume", isOn: self.$model.volumeEnabled)
+                    TextField("Volume", text: self.$model.volume)
                 }
 
                 HStack {
@@ -69,7 +69,7 @@ struct ContentView: View {
     }
     
     func test() {
-        model.performStartup()
+        model.firstCheck()
     }
 }
 

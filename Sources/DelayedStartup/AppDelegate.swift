@@ -6,8 +6,10 @@
 import ApplicationExtensions
 import Cocoa
 import Files
+import Logger
 import SwiftUI
 
+let checkingChannel = Channel("Checking")
 
 class ViewState: ObservableObject {
     func selectItemsToAdd() {
@@ -29,14 +31,20 @@ class AppDelegate: BasicApplication {
             DispatchQueue.main.async {
                 self.setupWindow()
                 if !UserDefaults.standard.bool(forKey: "DontCheckOnStartup") {
-                    self.scheduleCheck()
+                    self.model.firstCheck()
+                } else {
+                    checkingChannel.log("Checking was disabled on startup.")
                 }
             }
         }
     }
 
     override func tearDown() {
-        model.save()
+        let semaphore = DispatchSemaphore(value: 0)
+        model.save() {
+            semaphore.signal()
+        }
+        semaphore.wait()
     }
     
     func setupWindow() {
@@ -76,21 +84,7 @@ class AppDelegate: BasicApplication {
             }
         }
     }
-    
-    func scheduleCheck() {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(30))) {
-            self.performCheck()
-        }
-    }
-    
-    func performCheck() {
-        if FileManager.default.fileExists(atPath: "/Volumes/caconym/Users") {
-            model.performStartup()
-        } else {
-            scheduleCheck()
-        }
-    }
-    
+        
     func shutdown() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(1))) {
             NSApp.terminate(self)
