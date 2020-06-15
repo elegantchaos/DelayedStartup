@@ -26,13 +26,19 @@ class Model: ObservableObject {
         
         var url: URL? { URL.resolveSecureBookmark(bookmark) }
         var label: String { appID == nil ? name : "\(name) (\(appID!))" }
-        
+
         init?(url: URL) {
             guard let data = url.secureBookmark(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess]) else { return nil }
             self.identifier = UUID()
             self.name = url.deletingPathExtension().lastPathComponent
             self.bookmark = data
         }
+        
+        var icon: NSImage {
+            guard let path = url?.path else { return NSImage() }
+            return NSWorkspace.shared.icon(forFile: path)
+        }
+
         
         func open(completion: @escaping (Result<Bool, Error>) -> Void) {
             if let identifier = appID {

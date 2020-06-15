@@ -20,6 +20,7 @@ struct ContentView: View {
                 Text("Delayed Startup Items")
                 
                 EditableList() { (item: Model.Item, model: Model) in
+                    Image(nsImage: item.icon)
                     Text(item.name)
                 }
                 
