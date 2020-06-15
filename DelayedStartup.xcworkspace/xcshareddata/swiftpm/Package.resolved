@@ -2,12 +2,39 @@
   "object": {
     "pins": [
       {
-        "package": "Files",
-        "repositoryURL": "https://github.com/elegantchaos/Files.git",
+        "package": "ApplicationExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ApplicationExtensions.git",
         "state": {
           "branch": null,
-          "revision": "0fc27ae20624324f3a44733412fad9649d588fed",
-          "version": "1.1.3"
+          "revision": "818495a0d1076b01fcad16b58b60b9130e8cb418",
+          "version": "1.1.2"
+        }
+      },
+      {
+        "package": "Bundles",
+        "repositoryURL": "https://github.com/elegantchaos/Bundles.git",
+        "state": {
+          "branch": null,
+          "revision": "e21d9b688841404ed0bcc3921616364f494d1359",
+          "version": "1.0.4"
+        }
+      },
+      {
+        "package": "CollectionExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/CollectionExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "002f744b085c162f37783b8a629ae6364c558c3a",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "Images",
+        "repositoryURL": "https://github.com/elegantchaos/Images.git",
+        "state": {
+          "branch": null,
+          "revision": "59a9088a3f83e4e074df55e6d74b38cf52ffe75d",
+          "version": "1.0.0"
         }
       },
       {
@@ -17,6 +44,15 @@
           "branch": null,
           "revision": "e8a0dea5e826a6b3f7d020bd113247274991fb97",
           "version": "1.5.5"
+        }
+      },
+      {
+        "package": "SemanticVersion",
+        "repositoryURL": "https://github.com/elegantchaos/SemanticVersion.git",
+        "state": {
+          "branch": null,
+          "revision": "6bda5a45a2f687a82a0fbb002bee8ad31e44f478",
+          "version": "1.1.0"
         }
       },
       {

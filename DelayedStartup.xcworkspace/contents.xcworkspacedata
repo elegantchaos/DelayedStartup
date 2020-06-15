@@ -19,9 +19,18 @@
       </Group>
    </Group>
    <FileRef
+      location = "group:../Logger">
+   </FileRef>
+   <FileRef
+      location = "group:../ApplicationExtensions">
+   </FileRef>
+   <FileRef
       location = "group:../SwiftUIExtensions">
    </FileRef>
    <FileRef
       location = "group:../Files">
+   </FileRef>
+   <FileRef
+      location = "group:../Bundles">
    </FileRef>
 </Workspace>

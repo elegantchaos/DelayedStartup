@@ -24,6 +24,7 @@
 		22A393C9248A77CD00BF96D7 /* SwiftUIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393C8248A77CD00BF96D7 /* SwiftUIExtensions */; };
 		22A393CC248A77E400BF96D7 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393CB248A77E400BF96D7 /* Logger */; };
 		22A393CE248A77E400BF96D7 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A393CD248A77E400BF96D7 /* LoggerKit */; };
+		22FB39A9249788D7002314DB /* ApplicationExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 22FB39A8249788D7002314DB /* ApplicationExtensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A393C9248A77CD00BF96D7 /* SwiftUIExtensions in Frameworks */,
+				22FB39A9249788D7002314DB /* ApplicationExtensions in Frameworks */,
 				22A393C6248A778400BF96D7 /* SwiftUIExtensions in Frameworks */,
 				22A393CC248A77E400BF96D7 /* Logger in Frameworks */,
 				22A393CE248A77E400BF96D7 /* LoggerKit in Frameworks */,
@@ -218,6 +220,7 @@
 				22A393C8248A77CD00BF96D7 /* SwiftUIExtensions */,
 				22A393CB248A77E400BF96D7 /* Logger */,
 				22A393CD248A77E400BF96D7 /* LoggerKit */,
+				22FB39A8249788D7002314DB /* ApplicationExtensions */,
 			);
 			productName = DelayedStartup;
 			productReference = 22182658248A567400322631 /* Delayed Startup.app */;
@@ -295,6 +298,7 @@
 				22A393BF248A63C900BF96D7 /* XCRemoteSwiftPackageReference "Files" */,
 				22A393C7248A77CD00BF96D7 /* XCRemoteSwiftPackageReference "SwiftUIExtensions" */,
 				22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */,
+				22FB39A7249788D7002314DB /* XCRemoteSwiftPackageReference "ApplicationExtensions" */,
 			);
 			productRefGroup = 22182659248A567400322631 /* Products */;
 			projectDirPath = "";
@@ -673,6 +677,14 @@
 				minimumVersion = 1.5.5;
 			};
 		};
+		22FB39A7249788D7002314DB /* XCRemoteSwiftPackageReference "ApplicationExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/ApplicationExtensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -699,6 +711,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22A393CA248A77E400BF96D7 /* XCRemoteSwiftPackageReference "Logger" */;
 			productName = LoggerKit;
+		};
+		22FB39A8249788D7002314DB /* ApplicationExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22FB39A7249788D7002314DB /* XCRemoteSwiftPackageReference "ApplicationExtensions" */;
+			productName = ApplicationExtensions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
