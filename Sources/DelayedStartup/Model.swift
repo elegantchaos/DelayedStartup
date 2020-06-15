@@ -98,23 +98,39 @@ class Model: ObservableObject {
     
     let queue = DispatchQueue.main
     
-    func load() {
+    typealias LoadCompletion = () -> Void
+    func load(completion: LoadCompletion? = nil) {
         queue.async {
             let decoder = JSONDecoder()
-            if let json = UserDefaults.standard.string(forKey: "Items"), let data = json.data(using: .utf8) {
+            let defaults = UserDefaults.standard
+            self.delay = defaults.bool(forKey: .delayKey)
+            self.delayTime = defaults.string(forKey: .delayTimeKey) ?? ""
+            self.check = defaults.bool(forKey: .checkKey)
+            self.checkVolume = defaults.string(forKey: .checkVolumeKey) ?? ""
+            self.quitWhenDone = defaults.bool(forKey: .quitWhenDoneKey)
+            if let json = UserDefaults.standard.string(forKey: .itemsKey), let data = json.data(using: .utf8) {
                 if let items = try? decoder.decode([Item].self, from: data) {
                     self.items = items
                 }
             }
+            completion?()
         }
     }
     
-    func save() {
+    typealias SaveCompletion = () -> Void
+    func save(completion: SaveCompletion? = nil) {
         queue.async {
             let encoder = JSONEncoder()
+            let defaults = UserDefaults.standard
             if let encoded = try? encoder.encode(self.items), let json = String(data: encoded, encoding: .utf8) {
-                UserDefaults.standard.set(json, forKey: "Items")
+                defaults.set(json, forKey: .itemsKey)
             }
+            defaults.set(self.delay, forKey: .delayKey)
+            defaults.set(self.delayTime, forKey: .delayTimeKey)
+            defaults.set(self.check, forKey: .checkKey)
+            defaults.set(self.checkVolume, forKey: .checkVolumeKey)
+            defaults.set(self.quitWhenDone, forKey: .quitWhenDoneKey)
+            completion?()
         }
     }
     
@@ -175,4 +191,14 @@ class Model: ObservableObject {
     }
     
     
+}
+
+extension String {
+    static let delayKey = "Delay"
+    static let delayTimeKey = "DelayTime"
+    static let checkKey = "Check"
+    static let checkVolumeKey = "CheckVolume"
+    static let quitWhenDoneKey = "QuitWhenDone"
+    static let itemsKey = "Items"
+
 }
