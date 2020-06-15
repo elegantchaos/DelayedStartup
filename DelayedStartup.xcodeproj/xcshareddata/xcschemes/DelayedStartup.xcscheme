@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22182657248A567400322631"
-               BuildableName = "&quot;Delayed Startup&quot;.app"
+               BuildableName = "Delayed Startup.app"
                BlueprintName = "DelayedStartup"
                ReferencedContainer = "container:DelayedStartup.xcodeproj">
             </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22182657248A567400322631"
-            BuildableName = "&quot;Delayed Startup&quot;.app"
+            BuildableName = "Delayed Startup.app"
             BlueprintName = "DelayedStartup"
             ReferencedContainer = "container:DelayedStartup.xcodeproj">
          </BuildableReference>
@@ -106,7 +106,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22182657248A567400322631"
-            BuildableName = "&quot;Delayed Startup&quot;.app"
+            BuildableName = "Delayed Startup.app"
             BlueprintName = "DelayedStartup"
             ReferencedContainer = "container:DelayedStartup.xcodeproj">
          </BuildableReference>
