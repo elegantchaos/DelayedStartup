@@ -3,6 +3,7 @@
 //  All code (c) 2020 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+import ApplicationExtensions
 import Cocoa
 import Files
 import SwiftUI
@@ -15,7 +16,7 @@ class ViewState: ObservableObject {
 }
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: BasicApplication {
     
     static var shared: AppDelegate { NSApp.delegate as! AppDelegate }
     
@@ -23,7 +24,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let model = Model()
     let viewState = ViewState()
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    override func setUp(withOptions options: BasicApplication.LaunchOptions) {
+        model.load() {
+            DispatchQueue.main.async {
+                self.setupWindow()
+                if !UserDefaults.standard.bool(forKey: "DontCheckOnStartup") {
+                    self.scheduleCheck()
+                }
+            }
+        }
+    }
+
+    override func tearDown() {
+        model.save()
+    }
+    
+    func setupWindow() {
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
             .environmentObject(viewState)
@@ -38,16 +54,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
-        
-        model.load()
-        
-        if !UserDefaults.standard.bool(forKey: "DontCheckOnStartup") {
-            scheduleCheck()
-        }
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
     
     func selectItemsToAdd() {

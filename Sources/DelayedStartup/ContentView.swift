@@ -15,7 +15,7 @@ struct ContentView: View {
 
     var body: some View {
         EditingView() {
-            VStack {
+            VStack(alignment: .leading) {
                 
                 Text("Delayed Startup Items")
                 
@@ -45,7 +45,7 @@ struct ContentView: View {
                 
                 HStack {
                     Toggle("Delay For", isOn: self.$model.delay)
-                    TextField("Delay", text: self.$model.delayTime)
+                    TextField("Delay", text: self.$model.delayTime).frame(width: 64)
                     Text("seconds")
                 }
 
